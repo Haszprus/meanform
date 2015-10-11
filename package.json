@@ -1,0 +1,10 @@
+{
+  "name": "mean-user-form",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "yo": "^1.4.8"
+  }
+}
