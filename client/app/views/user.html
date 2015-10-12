@@ -1,24 +1,50 @@
-<form>
+<form name="userForm">
+
   <fieldset>
     <legend>User</legend>
 
     <table class="table">
       <tr>
         <td>Name</td>
-        <td><input ng-model="user.name"></td>
+        <td><input ng-model="user.name" name="name" required minlength="10"></td>
+        <td>
+          <div ng-messages="userForm.name.$error" role="alert" ng-show="userForm.name.$dirty">
+            <div ng-message="required">You did not enter a field</div>
+            <div ng-message="minlength, maxlength">
+              Your name is too short :trollface:
+            </div>
+          </div>
+        </td>
       </tr>
       <tr>
         <td>Email</td>
-        <td><input ng-model="user.email"></td>
+        <td><input ng-model="user.email" name="email" required minlength="5" type="email"></td>
+        <td>
+          <div ng-messages="userForm.email.$error" role="alert" ng-show="userForm.email.$dirty">
+            <div ng-message="required">You did not enter a field</div>
+            <div ng-message="minlength, maxlength">
+              Your email must be between 5 and 100 characters long
+            </div>
+          </div>
+        </td>
       </tr>
       <tr>
         <td>Occupation</td>
         <td><input ng-model="user.occupation"></td>
+        <td></td>
       </tr>
       <tr>
         <td>Birthday</td>
         <td><input ng-model="user.birthday"></td>
+        <td></td>
       </tr>
     </table>
+
+    <input type="submit" value="Save" ng-disabled="userForm.$invalid">
+
+    <span ng-show="userForm.$invalid">
+      Please fill in all the data.
+    </span>
+
   </fieldset>
 </form>

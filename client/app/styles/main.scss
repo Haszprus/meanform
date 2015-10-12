@@ -89,3 +89,32 @@ body {
     border-bottom: 0;
   }
 }
+
+form {
+
+  .ng-dirty {
+    &.ng-invalid {
+      border: 1px solid red;
+    }
+  }
+
+  table {
+    width: 100%;
+
+    input, textarea, select {
+      width: 100%;
+    }
+
+    td {
+      &:nth-child(1) {
+        width: 20%;
+      }
+      &:nth-child(2) {
+        width: 40%;
+      }
+      &:nth-child(3) {
+        width: 40%;
+      }
+    }
+  }
+}
