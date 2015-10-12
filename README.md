@@ -1,9 +1,13 @@
 # installation / run
 
 <p>open git-bash<br>
-$ node server.js<br>
+<pre>
+    $ node server.js
+</pre>
 
 <p>open git-bash<br>
-cd client<br>
-npm install<br>
-grunt serve
+<pre>
+    $ cd client
+    $ npm install
+    $ grunt serve
+</pre>

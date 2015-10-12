@@ -1,20 +1,20 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: UserCtrl', function () {
 
   // load the controller's module
   beforeEach(module('meanformApp'));
 
-  var MainCtrl;
+  var UserCtrl;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
-    MainCtrl = $controller('MainCtrl', {
+    UserCtrl = $controller('UserCtrl', {
       // place here mocked dependencies
     });
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
+    expect(UserCtrl.awesomeThings.length).toBe(3);
   });
 });

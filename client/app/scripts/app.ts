@@ -1,5 +1,7 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
+
 'use strict';
+
 /**
  * @ngdoc overview
  * @name meanformApp
@@ -9,33 +11,32 @@
  * Main module of the application.
  */
 angular
-    .module('meanformApp', [
+  .module('meanformApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
     'ngTouch'
-])
-    .config(function ($routeProvider) {
+  ])
+  .config(function ($routeProvider) {
     $routeProvider
-        .when('/', {
+      .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
-    })
-        .when('/about', {
+      })
+      .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
-    })
-        .when('/user', {
+      })
+      .when('/user', {
         templateUrl: 'views/user.html',
         controller: 'UserCtrl',
         controllerAs: 'user'
-    })
-        .otherwise({
+      })
+      .otherwise({
         redirectTo: '/'
-    });
-});
-//# sourceMappingURL=app.js.map
+      });
+  });
