@@ -2,6 +2,8 @@
 /// <reference path="../../../typings/jasmine/jasmine.d.ts" />
 /// <reference path="../../../app/scripts/controllers/user.ts" />
 
+var module: any;
+
 'use strict';
 
 describe('Controller: UserCtrl', () => {
