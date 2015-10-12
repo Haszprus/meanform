@@ -1,9 +1,9 @@
 # installation / run
 
-open git-bash
-$ node server.js
+<p>open git-bash<br>
+$ node server.js<br>
 
-open git-bash
-cd client
-npm install
+<p>open git-bash<br>
+cd client<br>
+npm install<br>
 grunt serve
