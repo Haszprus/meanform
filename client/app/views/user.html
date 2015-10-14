@@ -6,7 +6,7 @@
     <table class="table">
       <tr>
         <td>Name</td>
-        <td><input ng-model="user.name" name="name" required minlength="10"></td>
+        <td><input ng-model="user.name" name="name" required minlength="5" class="form-control"></td>
         <td>
           <div ng-messages="userForm.name.$error" role="alert" ng-show="userForm.name.$dirty">
             <div ng-message="required">You did not enter a field</div>
@@ -18,7 +18,7 @@
       </tr>
       <tr>
         <td>Email</td>
-        <td><input ng-model="user.email" name="email" required minlength="5" type="email"></td>
+        <td><input ng-model="user.email" name="email" required minlength="5" type="email" class="form-control"></td>
         <td>
           <div ng-messages="userForm.email.$error" role="alert" ng-show="userForm.email.$dirty">
             <div ng-message="required">You did not enter a field</div>
@@ -30,17 +30,17 @@
       </tr>
       <tr>
         <td>Occupation</td>
-        <td><input ng-model="user.occupation"></td>
+        <td><input ng-model="user.occupation" class="form-control"></td>
         <td></td>
       </tr>
       <tr>
         <td>Birthday</td>
-        <td><input ng-model="user.birthday"></td>
+        <td><input ng-model="user.birthday" class="form-control"></td>
         <td></td>
       </tr>
     </table>
 
-    <input type="submit" value="Save" ng-disabled="userForm.$invalid">
+    <button type="submit" ng-disabled="userForm.$invalid" class="btn">Save</button>
 
     <span ng-show="userForm.$invalid">
       Please fill in all the data.
