@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMessages'
+    'ngMessages',
+    'ui.bootstrap.tpls'
 ])
     .config(function ($routeProvider) {
     $routeProvider
