@@ -20,7 +20,7 @@ angular
     'ngTouch',
     'ngMessages',
     'ui.bootstrap.tpls',
-    'ui.bootstrap.typeahead',
+    'ui.bootstrap.typeahead'
   ])
   .config(function ($routeProvider) {
     $routeProvider

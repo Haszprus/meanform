@@ -32,11 +32,17 @@
         <td>Occupation</td>
         <td>
           <input type="text"
+                 name="occupation"
+                 data-is-valid="{{user.validateTypeahead(user.occupation, user.occupations)}}"
                  ng-model="user.occupation"
                  uib-typeahead="occupation for occupation in user.occupations | filter:$viewValue | limitTo:8"
                  class="form-control">
         </td>
-        <td></td>
+        <td>
+          <div ng-messages="userForm.occupation.$error" role="alert" ng-show="userForm.occupation.$dirty">
+            <div ng-message="byModel">Select a valid occupation.</div>
+          </div>
+        </td>
       </tr>
       <tr>
         <td>Birthday</td>

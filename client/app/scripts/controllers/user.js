@@ -14,6 +14,12 @@ var meanformApp;
             this.occupation = undefined;
             this.occupations = ['Programmer', 'Developer', 'Engineer', 'Coder', 'Ninja', 'Tester', 'Business Analyst', 'CEO', 'CTO', 'Other'];
         }
+        // TODO not here
+        // TODO case insensitive
+        UserCtrl.prototype.validateTypeahead = function (value, values) {
+            var isValid = (values.indexOf(value) >= 0);
+            return isValid;
+        };
         return UserCtrl;
     })();
     meanformApp.UserCtrl = UserCtrl;
