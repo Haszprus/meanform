@@ -8,6 +8,9 @@ module meanformApp {
   }
 
   export class UserCtrl {
+    occupation: String;
+    occupations: String[];
+
     // @ngInject
     constructor (private $scope: IUserScope) {
       $scope.awesomeThings = [
@@ -15,6 +18,10 @@ module meanformApp {
         'AngularJS',
         'Karma'
       ];
+
+
+      this.occupation = undefined;
+      this.occupations = ['Programmer', 'Developer', 'Engineer', 'Coder', 'Ninja', 'Tester', 'Business Analyst', 'CEO', 'CTO', 'Other'];
     }
   }
 }

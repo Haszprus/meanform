@@ -11,6 +11,8 @@ var meanformApp;
                 'AngularJS',
                 'Karma'
             ];
+            this.occupation = undefined;
+            this.occupations = ['Programmer', 'Developer', 'Engineer', 'Coder', 'Ninja', 'Tester', 'Business Analyst', 'CEO', 'CTO', 'Other'];
         }
         return UserCtrl;
     })();

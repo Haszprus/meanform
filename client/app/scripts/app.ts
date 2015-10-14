@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngMessages',
-    'ui.bootstrap.tpls'
+    'ui.bootstrap.tpls',
+    'ui.bootstrap.typeahead',
   ])
   .config(function ($routeProvider) {
     $routeProvider
