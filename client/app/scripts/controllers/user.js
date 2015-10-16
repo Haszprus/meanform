@@ -12,9 +12,12 @@ var meanformApp;
         }
         // TODO not here
         // TODO case insensitive
-        UserCtrl.prototype.validateTypeahead = function (value, values) {
+        UserCtrl.prototype.validateOccupation = function (value, values) {
             var isValid = (values.indexOf(value) >= 0);
             return isValid;
+        };
+        UserCtrl.prototype.isOver18 = function (birthday) {
+            return moment().subtract("years", 18) > moment(birthday);
         };
         return UserCtrl;
     })();

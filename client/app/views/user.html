@@ -37,7 +37,7 @@
         <td>
           <input type="text"
                  name="occupation"
-                 data-is-valid="{{user.validateTypeahead(user.occupation, user.occupations)}}"
+                 data-is-valid="{{user.validateOccupation(user.occupation, user.occupations)}}"
                  ng-model="user.occupation"
                  uib-typeahead="occupation for occupation in user.occupations | filter:$viewValue | limitTo:8"
                  class="form-control">
@@ -50,10 +50,11 @@
       </tr>
       <tr>
         <td>Birthday</td>
-        <td><input type="date" ng-model="user.birthday" class="form-control"></td>
+        <td><input type="date" name="birthday" ng-model="user.birthday" class="form-control" data-is-valid="{{user.isOver18(user.birthday)}}"></td>
         <td>
           <div ng-messages="userForm.birthday.$error" role="alert" ng-show="userForm.birthday.$dirty">
             <div ng-message="date">Select a valid birthday.</div>
+            <div ng-message="byModel">You must be over 18.</div>
           </div>
         </td>
       </tr>

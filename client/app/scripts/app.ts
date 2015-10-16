@@ -1,4 +1,5 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
+/// <reference path="../../typings/moment/moment.d.ts" />
 
 'use strict';
 

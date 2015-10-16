@@ -19,9 +19,13 @@ module meanformApp {
 
     // TODO not here
     // TODO case insensitive
-    validateTypeahead(value: String, values: String[]): boolean {
+    validateOccupation(value: String, values: String[]): boolean {
       var isValid = (values.indexOf(value) >= 0);
       return isValid;
+    }
+
+    isOver18(birthday) {
+      return moment().subtract("years", 18) > moment(birthday);
     }
   }
 }
