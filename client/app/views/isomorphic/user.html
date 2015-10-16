@@ -1,0 +1,70 @@
+<form name="userForm">
+
+  <fieldset>
+    <legend>User</legend>
+
+    <table class="table">
+      <tr>
+        <td>Name</td>
+        <td><input ng-model="user.name" name="name" required minlength="5" ng-maxlength="20" class="form-control"></td>
+        <td>
+          <div ng-messages="userForm.name.$error" role="alert" ng-show="userForm.name.$dirty">
+            <div ng-message="required">You did not enter a field</div>
+            <div ng-message="minlength">
+              Your name is too short :trollface:
+            </div>
+            <div ng-message="maxlength">
+              Your name is too long
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input ng-model="user.email" name="email" required minlength="5" type="email" class="form-control"></td>
+        <td>
+          <div ng-messages="userForm.email.$error" role="alert" ng-show="userForm.email.$dirty">
+            <div ng-message="required">You did not enter a field</div>
+            <div ng-message="email">Invalid email address</div>
+            <div ng-message="minlength, maxlength">
+              Your email must be between 5 and 100 characters long
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Occupation</td>
+        <td>
+          <input type="text"
+                 name="occupation"
+                 data-is-valid="{{user.validateOccupation(user.occupation, user.occupations)}}"
+                 ng-model="user.occupation"
+                 uib-typeahead="occupation for occupation in user.occupations | filter:$viewValue | limitTo:8"
+                 class="form-control">
+        </td>
+        <td>
+          <div ng-messages="userForm.occupation.$error" role="alert" ng-show="userForm.occupation.$dirty">
+            <div ng-message="byModel">Select a valid occupation.</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Birthday</td>
+        <td><input type="date" name="birthday" ng-model="user.birthday" class="form-control" data-is-valid="{{user.isOver18(user.birthday)}}"></td>
+        <td>
+          <div ng-messages="userForm.birthday.$error" role="alert" ng-show="userForm.birthday.$dirty">
+            <div ng-message="date">Select a valid birthday.</div>
+            <div ng-message="byModel">You must be over 18.</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <button type="submit" ng-disabled="userForm.$invalid" class="btn">Save</button>
+
+    <span ng-show="userForm.$invalid">
+      Please fill in all the data.
+    </span>
+
+  </fieldset>
+</form>

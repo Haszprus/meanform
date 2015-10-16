@@ -40,6 +40,7 @@
         <ul class="nav navbar-nav" ng-controller="MenuCtrl as mc">
           <li ng-class="{ active: mc.isActive('/')}"><a href="#/">Home</a></li>
           <li ng-class="{ active: mc.isActive('/user')}"><a ng-href="#/user">User</a></li>
+          <li ng-class="{ active: mc.isActive('/isomorphic/user')}"><a ng-href="#/isomorphic/user">Isomorphic User</a></li>
           <li ng-class="{ active: mc.isActive('/about')}"><a ng-href="#/about">About</a></li>
         </ul>
       </div>
@@ -93,6 +94,7 @@
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/controllers/user.js"></script>
 <script src="scripts/controllers/menu.js"></script>
+<script src="scripts/controllers/isomorphic/user.js"></script>
 <!-- endbuild -->
 </body>
 </html>

@@ -38,6 +38,11 @@ angular
         controller: 'UserCtrl',
         controllerAs: 'user'
     })
+        .when('/isomorphic/user', {
+        templateUrl: 'views/isomorphic/user.html',
+        controller: 'IsomorphicUserCtrl',
+        controllerAs: 'isomorphic/user'
+    })
         .otherwise({
         redirectTo: '/'
     });
