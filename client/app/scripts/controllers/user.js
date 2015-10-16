@@ -6,13 +6,9 @@ var meanformApp;
         // @ngInject
         function UserCtrl($scope) {
             this.$scope = $scope;
-            $scope.awesomeThings = [
-                'HTML5 Boilerplate',
-                'AngularJS',
-                'Karma'
-            ];
             this.occupation = undefined;
-            this.occupations = ['Programmer', 'Developer', 'Engineer', 'Coder', 'Ninja', 'Tester', 'Business Analyst', 'CEO', 'CTO', 'Other'];
+            this.occupations = ['Programmer', 'Developer', 'Engineer', 'Coder', 'Ninja', 'Tester',
+                'Business Analyst', 'CEO', 'CTO', 'Other'];
         }
         // TODO not here
         // TODO case insensitive
