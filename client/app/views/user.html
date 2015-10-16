@@ -6,12 +6,15 @@
     <table class="table">
       <tr>
         <td>Name</td>
-        <td><input ng-model="user.name" name="name" required minlength="5" class="form-control"></td>
+        <td><input ng-model="user.name" name="name" required minlength="5" ng-maxlength="20" class="form-control"></td>
         <td>
           <div ng-messages="userForm.name.$error" role="alert" ng-show="userForm.name.$dirty">
             <div ng-message="required">You did not enter a field</div>
-            <div ng-message="minlength, maxlength">
+            <div ng-message="minlength">
               Your name is too short :trollface:
+            </div>
+            <div ng-message="maxlength">
+              Your name is too long
             </div>
           </div>
         </td>
@@ -22,6 +25,7 @@
         <td>
           <div ng-messages="userForm.email.$error" role="alert" ng-show="userForm.email.$dirty">
             <div ng-message="required">You did not enter a field</div>
+            <div ng-message="email">Invalid email address</div>
             <div ng-message="minlength, maxlength">
               Your email must be between 5 and 100 characters long
             </div>
@@ -47,7 +51,11 @@
       <tr>
         <td>Birthday</td>
         <td><input type="date" ng-model="user.birthday" class="form-control"></td>
-        <td></td>
+        <td>
+          <div ng-messages="userForm.birthday.$error" role="alert" ng-show="userForm.birthday.$dirty">
+            <div ng-message="date">Select a valid birthday.</div>
+          </div>
+        </td>
       </tr>
     </table>
 

@@ -1,16 +1,15 @@
 /// <reference path="../../../typings/angularjs/angular-mocks.d.ts" />
 /// <reference path="../../../typings/jasmine/jasmine.d.ts" />
-/// <reference path="../../../app/scripts/controllers/user.ts" />
-var module;
+/// <reference path="../../../app/scripts/controllers/menu.ts" />
 'use strict';
-xdescribe('Controller: UserCtrl', function () {
+xdescribe('Controller: MenuCtrl', function () {
     // load the controller's module
     beforeEach(module('meanformApp'));
-    var UserCtrl, scope;
+    var MenuCtrl, scope;
     // Initialize the controller and a mock scope
     beforeEach(inject(function ($controller, $rootScope) {
         scope = $rootScope.$new();
-        UserCtrl = $controller('UserCtrl', {
+        MenuCtrl = $controller('MenuCtrl', {
             $scope: scope
         });
     }));
@@ -18,4 +17,4 @@ xdescribe('Controller: UserCtrl', function () {
         //expect(scope.awesomeThings.length).toBe(3);
     });
 });
-//# sourceMappingURL=user.js.map
+//# sourceMappingURL=menu.js.map
