@@ -1,4 +1,5 @@
 /// <reference path="../../app.ts" />
+/// <reference path="../../isomorph.ts" />
 
 'use strict';
 
@@ -12,6 +13,11 @@ module meanformApp {
 
     // @ngInject
     constructor (private $scope: IIsomorphicUserScope) {
+
+      console.log("Isomorphic!");
+
+      var its = new meanformApp.IsomorphicTs();
+
       this.occupation = undefined;
       this.occupations = ['Programmer', 'Developer', 'Engineer', 'Coder', 'Ninja', 'Tester',
         'Business Analyst', 'CEO', 'CTO', 'Other'];
