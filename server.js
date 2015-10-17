@@ -7,16 +7,23 @@ app.get("/", function(req, res) {
 });
 
 app.get("/user", function(req, res) {
-    console.log(validator);
     var userForm = {
         name: 'olivér',
         email: 'asd@gmail.com',
         occupation: 'Programmer',
-        birthday: ''
+        birthday: '01/01/1998'
     };
-    validator.userValidator.validateUserForm(userForm);
-    console.log(validator.userValidator.getErrors());
-    res.send("hello validator");
+    var userValidator = new validator.userValidator();
+    userValidator.validate(userForm);
+    console.log(userValidator.getErrors());
+    console.log(userValidator.isValid());
+    if (! userValidator.isValid()) {
+        res.status(400);
+    }
+    res.json({
+        isValid: userValidator.isValid(),
+        errors: userValidator.getErrors()
+    });
 });
 
 app.listen(3000, function() {

@@ -13,8 +13,19 @@ var meanformApp;
         UserValidator.prototype.getErrors = function () {
             return this.errors;
         };
-        UserValidator.prototype.validateUserForm = function (userForm) {
-            var occupations = ["Programmer", "Developer"];
+        UserValidator.prototype.isValid = function () {
+            for (var key in this.errors) {
+                if (this.errors.hasOwnProperty(key)) {
+                    if (this.errors[key].length > 0) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        };
+        UserValidator.prototype.validate = function (userForm) {
+            var occupations = ['Programmer', 'Developer', 'Engineer', 'Coder', 'Ninja', 'Tester',
+                'Business Analyst', 'CEO', 'CTO', 'Other'];
             this.validateName(userForm.name);
             this.validateEmail(userForm.email);
             this.validateOccupation(userForm.occupation, occupations);
@@ -49,14 +60,16 @@ var meanformApp;
             }
         };
         UserValidator.prototype.validateBirthday = function (birthday) {
-            // type = date -> select a valid birthday
-            // isOver18(birthday) -> you must be over 18
+            var isValid = moment().subtract(18, "years") > moment(birthday);
+            if (!isValid) {
+                this.errors.birthday.push("You must be over 18.");
+            }
         };
         return UserValidator;
     })();
     meanformApp.UserValidator = UserValidator;
 })(meanformApp || (meanformApp = {}));
 module.exports = {
-    userValidator: new meanformApp.UserValidator()
+    userValidator: meanformApp.UserValidator
 };
 //# sourceMappingURL=validator.js.map
