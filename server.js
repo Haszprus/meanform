@@ -1,12 +1,19 @@
 var express = require("express"),
+    bodyParser = require('body-parser'),
     app = express(),
     validator = require("./validator");
 
+app.use(bodyParser());
+
 app.get("/", function(req, res) {
-    res.sendfile(__dirname + '/client/views/index.html');
+    res.setHeader("Access-Control-Allow-Methods", "GET,POST");
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:9000');
+    res.json({ok: 'OK'});
 });
 
 app.get("/user", function(req, res) {
+    console.log(req);
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:9000');
     var userForm = {
         name: 'olivér',
         email: 'asd@gmail.com',
@@ -24,6 +31,7 @@ app.get("/user", function(req, res) {
         isValid: userValidator.isValid(),
         errors: userValidator.getErrors()
     });
+    console.log(req.body);
 });
 
 app.listen(3000, function() {

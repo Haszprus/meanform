@@ -71,6 +71,27 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
+      server: {
+        options: {
+          hostname: 'localhost',
+          port: 8000,
+          middleware: function(connect) {
+            return [proxySnippet];
+          }
+        },
+        proxies: [
+          {
+            context: '/api',
+            host: 'localhost',
+            port: 3000
+          },
+          {
+            context: '/',
+            host: 'localhost',
+            port: 9000
+          }
+        ]
+      },
       livereload: {
         options: {
           open: true,
@@ -201,7 +222,7 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
-    }, 
+    },
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -448,6 +469,7 @@ module.exports = function (grunt) {
       'clean:server',
       'wiredep',
       'concurrent:server',
+      'configureProxies:server',
       'autoprefixer:server',
       'connect:livereload',
       'watch'
@@ -491,4 +513,7 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-connect-proxy');
+
 };

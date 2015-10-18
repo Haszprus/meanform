@@ -1,5 +1,4 @@
-/// <reference path="../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../typings/moment/moment.d.ts" />
+/// <reference path="../../typings/tsd.d.ts" />
 'use strict';
 /**
  * @ngdoc overview

@@ -1,4 +1,4 @@
-<form name="userForm">
+<form name="userForm" ng-submit="user.submit(form)">
 
   <fieldset>
     <legend>User</legend>
@@ -6,7 +6,7 @@
     <table class="table">
       <tr>
         <td>Name</td>
-        <td><input ng-model="user.name" name="name" required minlength="5" ng-maxlength="20" class="form-control"></td>
+        <td><input ng-model="form.name" name="name" required minlength="5" ng-maxlength="20" class="form-control"></td>
         <td>
           <div ng-messages="userForm.name.$error" role="alert" ng-show="userForm.name.$dirty">
             <div ng-message="required">You did not enter a field</div>
@@ -21,7 +21,7 @@
       </tr>
       <tr>
         <td>Email</td>
-        <td><input ng-model="user.email" name="email" required minlength="5" type="email" class="form-control"></td>
+        <td><input ng-model="form.email" name="email" required minlength="5" type="email" class="form-control"></td>
         <td>
           <div ng-messages="userForm.email.$error" role="alert" ng-show="userForm.email.$dirty">
             <div ng-message="required">You did not enter a field</div>
@@ -37,8 +37,8 @@
         <td>
           <input type="text"
                  name="occupation"
-                 data-is-valid="{{user.validateOccupation(user.occupation, user.occupations)}}"
-                 ng-model="user.occupation"
+                 data-is-valid="{{user.validateOccupation(form.occupation, user.occupations)}}"
+                 ng-model="form.occupation"
                  uib-typeahead="occupation for occupation in user.occupations | filter:$viewValue | limitTo:8"
                  class="form-control">
         </td>
@@ -50,7 +50,7 @@
       </tr>
       <tr>
         <td>Birthday</td>
-        <td><input type="date" name="birthday" ng-model="user.birthday" class="form-control" data-is-valid="{{user.isOver18(user.birthday)}}"></td>
+        <td><input type="date" name="birthday" ng-model="form.birthday" class="form-control" data-is-valid="{{user.isOver18(form.birthday)}}"></td>
         <td>
           <div ng-messages="userForm.birthday.$error" role="alert" ng-show="userForm.birthday.$dirty">
             <div ng-message="date">Select a valid birthday.</div>
