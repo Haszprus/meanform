@@ -11,16 +11,9 @@ var meanformApp;
             this.occupation = undefined;
             this.occupations = ['Programmer', 'Developer', 'Engineer', 'Coder', 'Ninja', 'Tester',
                 'Business Analyst', 'CEO', 'CTO', 'Other'];
-            //this.$http({method: 'GET', url: 'http://localhost:3000/', data: {a: 1}});
-            this.$http({ method: 'GET', url: 'http://localhost:3000', data: { a: 1 } });
-            var userResource = $resource('http://localhost:3000/user');
-            //var myUser = new userResource();
-            userResource.save({ a: 1 });
         }
         UserCtrl.prototype.submit = function (form) {
-            console.log("submit");
-            console.log(form);
-            //this.$http.post('http://localhost:3000/user', form);
+            this.$http.post('http://localhost:3000/user', form);
         };
         // TODO not here
         // TODO case insensitive
